@@ -23,19 +23,20 @@ public class Clipboard2FileImage {
 		        	
 		        }
 		        System.err.println("usage: java clipimg [filename]");
-		        String outputfile="default.png";
-		        if(args.length==0) 
-		        	loadClipboardAsFileTo(outputfile);
-		        else if(args.length ==1 )
-		        	outputfile=args[0];
-		        else if(args.length==2) {
+		       
+		         if(args.length==2) {
 		        	
 		        	if(args[0].toLowerCase().trim().indexOf("pull")==0) {
 		        		loadClipboardAsFileTo(args[1]);
-		        	}if(args[0].toLowerCase().trim().indexOf("push")==0) {
+		        	}
+		        	if(args[0].toLowerCase().trim().indexOf("push")==0) {
 		        		loadImageToClipboard(args[1]);
 		        	}
-		        }
+		        }else if(args.length ==1 )
+		        	loadClipboardAsFileTo(args[0]);
+		        else  if(args.length==0) 
+		        	loadClipboardAsFileTo("default.png");
+			        
 		    }
 		 
 		    static
